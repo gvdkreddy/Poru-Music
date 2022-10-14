@@ -43,4 +43,4 @@ require('node:http')
   )
   .listen(8080);
 
-client.login(process.env.TOKEN);
+client.login("MTAyNzgyODY5NzgyODQzMzk4MA.GScUGg.rzG-QLGfDm7282PHz8z0esCXXBVj39KygJsb3w");
