@@ -3,8 +3,8 @@ module.exports = {
     name: "help",
     aliases: ["h"],
     description: "Show all of the Commands",
-    run: async (client, interaction, args) => {
-        return interaction.reply({embeds: [new MessageEmbed()
+    run: async (client, message, args) => {
+        return message.reply({embeds: [new MessageEmbed()
             .setColor("FUCHSIA")
             .setTitle(`👍 **Here is a list of all of my Commands**`)
             .addFields(client.commands.map(d => {
