@@ -1,19 +1,27 @@
-const { MessageEmbed } = require("discord.js");
+
+const { EmbedBuilder } = require('discord.js');
+const { readdirSync } = require('fs');
+
 module.exports = {
-    name: "help",
-    aliases: ["h"],
-    description: "Show all of the Commands",
-    run: async (client, message, args) => {
-        return message.reply({embeds: [new MessageEmbed()
-            .setColor("FUCHSIA")
-            .setTitle(`👍 **Here is a list of all of my Commands**`)
-            .addFields(client.commands.map(d => {
+  name: 'help',
+  run: (client, message, args) => {
+    const prefix = client.prefix;
+
+      const embed = new EmbedBuilder()
+        .setTitle('Help Menu')
+        .addField(client.commands.map(d => {
                 return {
                     name: `\`/${d.name}\``,
                     value: `> *${d.description}*`,
                     inline: true
                 }
-            }))
-        ]}).catch(() => null);
-    },
-};
+            })
+        .setFooter({
+          text: `Requested by ${message.author.tag}`,
+          iconURL: message.author.displayAvatarURL(),
+        })
+        .setFooter({text:
+          `Type ${prefix}help <command name> for details on a command!`,
+        })
+        .setTimestamp()
+        .setColor('White')
