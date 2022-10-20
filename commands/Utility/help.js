@@ -24,4 +24,4 @@ module.exports = {
           `Type ${prefix}help <command name> for details on a command!`,
         })
         .setTimestamp()
-        .setColor('White')
+        .setColor('White')};
